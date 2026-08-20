@@ -8,8 +8,12 @@
 <style>
 *{box-sizing:border-box}
 
-body{
+html,body{
   margin:0;
+  padding:0;
+}
+
+body{
   font-family:Arial,sans-serif;
   background:linear-gradient(135deg,#eef7ff,#fff5df);
   color:#17365d;
@@ -19,13 +23,14 @@ body{
 .wrap{
   max-width:760px;
   margin:auto;
-  padding:7px;
+  padding:5px;
 }
 
 .logo{
   text-align:center;
-  font-size:36px;
+  font-size:30px;
   font-weight:900;
+  line-height:1;
 }
 
 .logo span{
@@ -36,31 +41,36 @@ body{
   text-align:center;
   color:#718096;
   font-weight:700;
-  font-size:13px;
-  margin:3px 0 8px;
+  font-size:11px;
+  margin:2px 0 5px;
 }
 
 .card{
   background:#fff;
-  border-radius:24px;
-  padding:14px;
-  box-shadow:0 12px 35px rgba(23,54,93,.12);
+  border-radius:20px;
+  padding:10px;
+  box-shadow:0 10px 28px rgba(23,54,93,.12);
 }
 
-.center{text-align:center}
-.hidden{display:none!important}
+.center{
+  text-align:center;
+}
+
+.hidden{
+  display:none!important;
+}
 
 .levels{
   display:grid;
-  gap:7px;
-  margin:12px 0;
+  gap:5px;
+  margin:8px 0;
 }
 
 button{
   border:0;
-  border-radius:15px;
-  padding:10px;
-  font-size:15px;
+  border-radius:13px;
+  padding:8px;
+  font-size:14px;
   font-weight:800;
   cursor:pointer;
   font-family:Arial,sans-serif;
@@ -90,32 +100,48 @@ button{
 
 .mistakes{
   width:100%;
-  margin-top:7px;
+  margin-top:5px;
   background:#fff4df;
   color:#805400;
 }
 
-.top,
-.stats{
+.allExercises{
+  background:#fff4df;
+  color:#805400;
+}
+
+.allExercisesHome{
+  width:100%;
+  margin-top:5px;
+}
+
+.top{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  gap:6px;
+  gap:5px;
+}
+
+.navButtons{
+  display:flex;
+  gap:5px;
+  flex-wrap:wrap;
 }
 
 .badge{
   background:#fff4df;
-  padding:7px 10px;
+  padding:6px 9px;
   border-radius:30px;
   font-weight:800;
+  font-size:12px;
 }
 
 .progress{
-  height:8px;
+  height:6px;
   background:#e9eff5;
   border-radius:20px;
   overflow:hidden;
-  margin:6px 0;
+  margin:5px 0;
 }
 
 .bar{
@@ -125,7 +151,11 @@ button{
 }
 
 .stats{
-  font-size:13px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:5px;
+  font-size:12px;
   color:#65758b;
   font-weight:700;
 }
@@ -134,29 +164,30 @@ button{
   text-align:center;
   color:#65758b;
   font-weight:800;
-  font-size:16px;
-  margin-top:7px;
+  font-size:14px;
+  margin-top:5px;
 }
 
 .question{
   text-align:center;
-  font-size:26px;
+  font-size:24px;
   font-weight:900;
-  margin:8px 0;
-  line-height:1.25;
+  margin:6px 0;
+  line-height:1.2;
 }
 
 .answers{
   display:grid;
-  gap:6px;
+  grid-template-columns:repeat(2,1fr);
+  gap:5px;
 }
 
 .answer{
   background:#fff;
   border:2px solid #dce7f2;
   color:#17365d;
-  padding:9px;
-  line-height:1.3;
+  padding:7px;
+  line-height:1.25;
 }
 
 .answer:hover{
@@ -164,15 +195,21 @@ button{
   background:#f5f9ff;
 }
 
+.answer.keyboardSelected{
+  border-color:#2f80ed;
+  background:#eaf3ff;
+  box-shadow:0 0 0 2px rgba(47,128,237,.12);
+}
+
 .answer:disabled{
   cursor:default;
 }
 
 .feedback{
-  margin-top:6px;
-  padding:7px 9px;
-  border-radius:12px;
-  font-size:14px;
+  margin-top:5px;
+  padding:5px 7px;
+  border-radius:10px;
+  font-size:12px;
 }
 
 .good{
@@ -186,20 +223,31 @@ button{
 }
 
 #nextButton{
-  margin-top:6px;
-  padding:8px;
+  margin-top:5px;
+  padding:7px;
 }
 
 .score{
-  font-size:48px;
+  font-size:44px;
   font-weight:900;
+  margin:5px;
+}
+
+.finishButtons{
+  display:flex;
+  gap:5px;
+  margin-top:6px;
+}
+
+.finishButtons button{
+  flex:1;
 }
 
 .footer{
   text-align:center;
   color:#8795a7;
-  font-size:12px;
-  margin-top:5px;
+  font-size:10px;
+  margin-top:3px;
 }
 
 
@@ -207,17 +255,35 @@ button{
 
 @media(max-height:700px){
 
-  .logo{font-size:29px}
-
-  .slogan{
-    font-size:11px;
-    margin:1px 0 4px;
+  .wrap{
+    padding:4px;
   }
 
-  .card{padding:9px}
+  .logo{
+    font-size:25px;
+  }
+
+  .slogan{
+    font-size:9px;
+    margin:1px 0 3px;
+  }
+
+  .card{
+    padding:7px;
+  }
+
+  button{
+    padding:6px;
+    font-size:12px;
+  }
+
+  .levels{
+    gap:4px;
+    margin:5px 0;
+  }
 
   .instruction{
-    font-size:14px;
+    font-size:12px;
     margin-top:3px;
   }
 
@@ -227,31 +293,54 @@ button{
   }
 
   .answer{
-    padding:7px;
-    font-size:13px;
+    padding:6px;
+    font-size:12px;
   }
 
   .feedback{
-    font-size:12px;
-    padding:5px;
+    font-size:11px;
+    padding:4px;
   }
 
-  .top button,
-  .badge{
-    font-size:12px;
-    padding:6px;
+  .progress{
+    margin:3px 0;
   }
-
-  .progress{height:6px}
 }
+
+
+/* MOBIL */
 
 @media(max-width:520px){
 
-  .wrap{padding:6px}
+  .wrap{
+    padding:4px;
+  }
 
-  .logo{font-size:33px}
+  .card{
+    padding:8px;
+  }
 
-  .question{font-size:23px}
+  .logo{
+    font-size:27px;
+  }
+
+  .question{
+    font-size:21px;
+  }
+
+  .answers{
+    grid-template-columns:1fr;
+  }
+
+  .navButtons button{
+    font-size:10px;
+    padding:5px;
+  }
+
+  .badge{
+    font-size:10px;
+    padding:5px 7px;
+  }
 }
 </style>
 </head>
@@ -269,17 +358,21 @@ button{
 </div>
 
 
-<!-- DOMOV -->
+<!-- =========================
+     ÚVOD
+========================= -->
 
 <section id="home" class="card center">
 
-  <div style="font-size:40px">❓</div>
+  <div style="font-size:34px">
+    ❓
+  </div>
 
-  <h1 style="margin:5px 0">
+  <h1 style="margin:4px 0">
     Druhy viet
   </h1>
 
-  <p style="margin:5px 0">
+  <p style="margin:3px 0">
     Znamienka na konci viet a druhy viet.
   </p>
 
@@ -290,7 +383,9 @@ button{
       data-level="1">
       ⭐ Skúšam
       <br>
-      <small>Vyber správne znamienko</small>
+      <small>
+        Vyber správne znamienko
+      </small>
     </button>
 
     <button
@@ -298,7 +393,9 @@ button{
       data-level="2">
       ⭐⭐ Už mi to ide
       <br>
-      <small>Urči druh vety</small>
+      <small>
+        Urči druh vety
+      </small>
     </button>
 
     <button
@@ -306,7 +403,9 @@ button{
       data-level="3">
       ⭐⭐⭐ DámTo!
       <br>
-      <small>Vyber správne napísanú vetu</small>
+      <small>
+        Vyber správne napísanú vetu
+      </small>
     </button>
 
   </div>
@@ -324,20 +423,38 @@ button{
     <span id="mistakeCount"></span>
   </button>
 
+  <button
+    id="allExercisesHomeBtn"
+    class="allExercises allExercisesHome">
+    🏠 Všetky cvičenia
+  </button>
+
 </section>
 
 
-<!-- HRA -->
+<!-- =========================
+     HRA
+========================= -->
 
 <section id="game" class="card hidden">
 
   <div class="top">
 
-    <button
-      id="backBtn"
-      class="secondary">
-      ← Späť
-    </button>
+    <div class="navButtons">
+
+      <button
+        id="backBtn"
+        class="secondary">
+        ← Späť
+      </button>
+
+      <button
+        id="allExercisesBtn"
+        class="allExercises">
+        🏠 Všetky cvičenia
+      </button>
+
+    </div>
 
     <div
       id="levelBadge"
@@ -390,17 +507,19 @@ button{
 </section>
 
 
-<!-- KONIEC -->
+<!-- =========================
+     KONIEC
+========================= -->
 
 <section
   id="finish"
   class="card center hidden">
 
-  <div style="font-size:50px">
+  <div style="font-size:44px">
     🏆
   </div>
 
-  <h1>
+  <h1 style="margin:5px">
     Tréning hotový!
   </h1>
 
@@ -417,13 +536,21 @@ button{
     🔄 Nový náhodný mix
   </button>
 
-  <br><br>
+  <div class="finishButtons">
 
-  <button
-    id="homeBtn"
-    class="secondary">
-    ⭐ Vybrať level
-  </button>
+    <button
+      id="homeBtn"
+      class="secondary">
+      ⭐ Vybrať level
+    </button>
+
+    <button
+      id="allExercisesFinishBtn"
+      class="allExercises">
+      🏠 Všetky cvičenia
+    </button>
+
+  </div>
 
 </section>
 
@@ -438,10 +565,25 @@ button{
 <script>
 
 /* =====================================================
+   VŠETKY CVIČENIA
+===================================================== */
+
+const ALL_EXERCISES_URL =
+"https://sites.google.com/view/vyssilevel/d%C3%A1mto-online-cvi%C4%8Denia";
+
+function goToAllExercises(){
+
+  window.top.location.href=
+    ALL_EXERCISES_URL;
+}
+
+
+/* =====================================================
    VEĽKÁ DATABÁZA VIET
 ===================================================== */
 
 const sentenceBank=[
+
 
 /* OZNAMOVACIE */
 
@@ -458,6 +600,7 @@ const sentenceBank=[
 ["Môj brat hrá futbal","oznamovacia","."],
 ["Na oblohe letí lietadlo","oznamovacia","."],
 
+
 /* OPYTOVACIE */
 
 ["Kde býva tvoja stará mama","opytovacia","?"],
@@ -473,6 +616,7 @@ const sentenceBank=[
 ["Kde je moja ceruzka","opytovacia","?"],
 ["Pôjdeš sa so mnou hrať","opytovacia","?"],
 
+
 /* ROZKAZOVACIE */
 
 ["Otvor si zošit","rozkazovacia","!"],
@@ -487,6 +631,7 @@ const sentenceBank=[
 ["Dávaj pozor na cestu","rozkazovacia","!"],
 ["Prosím, podaj mi knihu","rozkazovacia","!"],
 ["Nezabudni si tašku","rozkazovacia","!"],
+
 
 /* ŽELACIE */
 
@@ -512,29 +657,29 @@ const sentenceBank=[
 ===================================================== */
 
 const level1=
-  sentenceBank.map(
-    (item,index)=>({
+sentenceBank.map(
+  (item,index)=>({
 
-      id:
-        "l1-"+index,
+    id:
+      "l1-"+index,
 
-      i:
-        "Ktoré znamienko patrí na koniec vety?",
+    i:
+      "Ktoré znamienko patrí na koniec vety?",
 
-      q:
-        item[0],
+    q:
+      item[0],
 
-      c:
-        item[2],
+    c:
+      item[2],
 
-      o:[
-        ".",
-        "?",
-        "!"
-      ]
+    o:[
+      ".",
+      "?",
+      "!"
+    ]
 
-    })
-  );
+  })
+);
 
 
 /* =====================================================
@@ -543,30 +688,30 @@ const level1=
 ===================================================== */
 
 const level2=
-  sentenceBank.map(
-    (item,index)=>({
+sentenceBank.map(
+  (item,index)=>({
 
-      id:
-        "l2-"+index,
+    id:
+      "l2-"+index,
 
-      i:
-        "Aký je to druh vety?",
+    i:
+      "Aký je to druh vety?",
 
-      q:
-        item[0]+item[2],
+    q:
+      item[0]+item[2],
 
-      c:
-        item[1],
+    c:
+      item[1],
 
-      o:[
-        "oznamovacia",
-        "opytovacia",
-        "rozkazovacia",
-        "želacia"
-      ]
+    o:[
+      "oznamovacia",
+      "opytovacia",
+      "rozkazovacia",
+      "želacia"
+    ]
 
-    })
-  );
+  })
+);
 
 
 /* =====================================================
@@ -574,364 +719,92 @@ const level2=
    SPRÁVNE NAPÍSANÁ VETA
 ===================================================== */
 
-const level3=[
+const correctSentences=[
 
-{
-id:"l3-1",
-i:"Vyber správne napísanú vetu.",
-c:"Dnes ideme do kina.",
-o:[
-"dnes ideme do kina.",
-"Dnes ideme do kina?",
-"Dnes ideme do kina."
-]
-},
-
-{
-id:"l3-2",
-i:"Vyber správne napísanú vetu.",
-c:"Kde je moja kniha?",
-o:[
-"Kde je moja kniha.",
-"kde je moja kniha?",
-"Kde je moja kniha?"
-]
-},
-
-{
-id:"l3-3",
-i:"Vyber správne napísanú vetu.",
-c:"Otvor okno!",
-o:[
-"Otvor okno.",
-"otvor okno!",
-"Otvor okno!"
-]
-},
-
-{
-id:"l3-4",
-i:"Vyber správne napísanú vetu.",
-c:"Nech sa ti darí!",
-o:[
-"Nech sa ti darí.",
-"nech sa ti darí!",
-"Nech sa ti darí!"
-]
-},
-
-{
-id:"l3-5",
-i:"Vyber správne napísanú vetu.",
-c:"Mačka sedí pri okne.",
-o:[
-"Mačka sedí pri okne?",
-"mačka sedí pri okne.",
-"Mačka sedí pri okne."
-]
-},
-
-{
-id:"l3-6",
-i:"Vyber správne napísanú vetu.",
-c:"Ako sa voláš?",
-o:[
-"Ako sa voláš.",
-"ako sa voláš?",
-"Ako sa voláš?"
-]
-},
-
-{
-id:"l3-7",
-i:"Vyber správne napísanú vetu.",
-c:"Prines si učebnicu!",
-o:[
-"Prines si učebnicu.",
-"prines si učebnicu!",
-"Prines si učebnicu!"
-]
-},
-
-{
-id:"l3-8",
-i:"Vyber správne napísanú vetu.",
-c:"Kiež by už bolo leto!",
-o:[
-"Kiež by už bolo leto.",
-"kiež by už bolo leto!",
-"Kiež by už bolo leto!"
-]
-},
-
-{
-id:"l3-9",
-i:"Vyber správne napísanú vetu.",
-c:"Na dvore rastie strom.",
-o:[
-"Na dvore rastie strom?",
-"na dvore rastie strom.",
-"Na dvore rastie strom."
-]
-},
-
-{
-id:"l3-10",
-i:"Vyber správne napísanú vetu.",
-c:"Kam ideš?",
-o:[
-"Kam ideš.",
-"kam ideš?",
-"Kam ideš?"
-]
-},
-
-{
-id:"l3-11",
-i:"Vyber správne napísanú vetu.",
-c:"Uprac si izbu!",
-o:[
-"Uprac si izbu.",
-"uprac si izbu!",
-"Uprac si izbu!"
-]
-},
-
-{
-id:"l3-12",
-i:"Vyber správne napísanú vetu.",
-c:"Nech sa nám výlet vydarí!",
-o:[
-"Nech sa nám výlet vydarí.",
-"nech sa nám výlet vydarí!",
-"Nech sa nám výlet vydarí!"
-]
-},
-
-{
-id:"l3-13",
-i:"Vyber správne napísanú vetu.",
-c:"V triede je ticho.",
-o:[
-"V triede je ticho?",
-"v triede je ticho.",
-"V triede je ticho."
-]
-},
-
-{
-id:"l3-14",
-i:"Vyber správne napísanú vetu.",
-c:"Prečo meškáš?",
-o:[
-"Prečo meškáš.",
-"prečo meškáš?",
-"Prečo meškáš?"
-]
-},
-
-{
-id:"l3-15",
-i:"Vyber správne napísanú vetu.",
-c:"Počkaj na mňa!",
-o:[
-"Počkaj na mňa.",
-"počkaj na mňa!",
-"Počkaj na mňa!"
-]
-},
-
-{
-id:"l3-16",
-i:"Vyber správne napísanú vetu.",
-c:"Keby tak dnes nasnežilo!",
-o:[
-"Keby tak dnes nasnežilo.",
-"keby tak dnes nasnežilo!",
-"Keby tak dnes nasnežilo!"
-]
-},
-
-{
-id:"l3-17",
-i:"Vyber správne napísanú vetu.",
-c:"Otec číta noviny.",
-o:[
-"Otec číta noviny?",
-"otec číta noviny.",
-"Otec číta noviny."
-]
-},
-
-{
-id:"l3-18",
-i:"Vyber správne napísanú vetu.",
-c:"Kto je dnes služba?",
-o:[
-"Kto je dnes služba.",
-"kto je dnes služba?",
-"Kto je dnes služba?"
-]
-},
-
-{
-id:"l3-19",
-i:"Vyber správne napísanú vetu.",
-c:"Zapíš si domácu úlohu!",
-o:[
-"Zapíš si domácu úlohu.",
-"zapíš si domácu úlohu!",
-"Zapíš si domácu úlohu!"
-]
-},
-
-{
-id:"l3-20",
-i:"Vyber správne napísanú vetu.",
-c:"Kiež by sme vyhrali!",
-o:[
-"Kiež by sme vyhrali.",
-"kiež by sme vyhrali!",
-"Kiež by sme vyhrali!"
-]
-},
-
-{
-id:"l3-21",
-i:"Vyber správne napísanú vetu.",
-c:"Na stole je váza.",
-o:[
-"Na stole je váza?",
-"na stole je váza.",
-"Na stole je váza."
-]
-},
-
-{
-id:"l3-22",
-i:"Vyber správne napísanú vetu.",
-c:"Kedy príde vlak?",
-o:[
-"Kedy príde vlak.",
-"kedy príde vlak?",
-"Kedy príde vlak?"
-]
-},
-
-{
-id:"l3-23",
-i:"Vyber správne napísanú vetu.",
-c:"Dávaj pozor!",
-o:[
-"Dávaj pozor.",
-"dávaj pozor!",
-"Dávaj pozor!"
-]
-},
-
-{
-id:"l3-24",
-i:"Vyber správne napísanú vetu.",
-c:"Nech máš pekný deň!",
-o:[
-"Nech máš pekný deň.",
-"nech máš pekný deň!",
-"Nech máš pekný deň!"
-]
-},
-
-{
-id:"l3-25",
-i:"Vyber správne napísanú vetu.",
-c:"Vonku fúka vietor.",
-o:[
-"Vonku fúka vietor?",
-"vonku fúka vietor.",
-"Vonku fúka vietor."
-]
-},
-
-{
-id:"l3-26",
-i:"Vyber správne napísanú vetu.",
-c:"Máš hotovú úlohu?",
-o:[
-"Máš hotovú úlohu.",
-"máš hotovú úlohu?",
-"Máš hotovú úlohu?"
-]
-},
-
-{
-id:"l3-27",
-i:"Vyber správne napísanú vetu.",
-c:"Zober si dáždnik!",
-o:[
-"Zober si dáždnik.",
-"zober si dáždnik!",
-"Zober si dáždnik!"
-]
-},
-
-{
-id:"l3-28",
-i:"Vyber správne napísanú vetu.",
-c:"Keby som mal viac času!",
-o:[
-"Keby som mal viac času.",
-"keby som mal viac času!",
-"Keby som mal viac času!"
-]
-},
-
-{
-id:"l3-29",
-i:"Vyber správne napísanú vetu.",
-c:"Pes spí v búde.",
-o:[
-"Pes spí v búde?",
-"pes spí v búde.",
-"Pes spí v búde."
-]
-},
-
-{
-id:"l3-30",
-i:"Vyber správne napísanú vetu.",
-c:"Ako sa máš?",
-o:[
-"Ako sa máš.",
-"ako sa máš?",
-"Ako sa máš?"
-]
-},
-
-{
-id:"l3-31",
-i:"Vyber správne napísanú vetu.",
-c:"Prečítaj nahlas!",
-o:[
-"Prečítaj nahlas.",
-"prečítaj nahlas!",
-"Prečítaj nahlas!"
-]
-},
-
-{
-id:"l3-32",
-i:"Vyber správne napísanú vetu.",
-c:"Nech sú všetci zdraví!",
-o:[
-"Nech sú všetci zdraví.",
-"nech sú všetci zdraví!",
+"Dnes ideme do kina.",
+"Kde je moja kniha?",
+"Otvor okno!",
+"Nech sa ti darí!",
+"Mačka sedí pri okne.",
+"Ako sa voláš?",
+"Prines si učebnicu!",
+"Kiež by už bolo leto!",
+"Na dvore rastie strom.",
+"Kam ideš?",
+"Uprac si izbu!",
+"Nech sa nám výlet vydarí!",
+"V triede je ticho.",
+"Prečo meškáš?",
+"Počkaj na mňa!",
+"Keby tak dnes nasnežilo!",
+"Otec číta noviny.",
+"Kto je dnes služba?",
+"Zapíš si domácu úlohu!",
+"Kiež by sme vyhrali!",
+"Na stole je váza.",
+"Kedy príde vlak?",
+"Dávaj pozor!",
+"Nech máš pekný deň!",
+"Vonku fúka vietor.",
+"Máš hotovú úlohu?",
+"Zober si dáždnik!",
+"Keby som mal viac času!",
+"Pes spí v búde.",
+"Ako sa máš?",
+"Prečítaj nahlas!",
 "Nech sú všetci zdraví!"
-]
+
+];
+
+
+function lowerFirst(sentence){
+
+  return sentence
+    .charAt(0)
+    .toLowerCase()
+    +
+    sentence.slice(1);
 }
 
-].map(
-  x=>({
-    ...x,
-    q:""
+
+function wrongPunctuation(sentence){
+
+  const last=
+    sentence.slice(-1);
+
+  const base=
+    sentence.slice(0,-1);
+
+  if(last==="."){
+    return base+"?";
+  }
+
+  return base+".";
+}
+
+
+const level3=
+correctSentences.map(
+  (sentence,index)=>({
+
+    id:
+      "l3-"+(index+1),
+
+    i:
+      "Vyber správne napísanú vetu.",
+
+    q:
+      "",
+
+    c:
+      sentence,
+
+    o:[
+      wrongPunctuation(sentence),
+      lowerFirst(sentence),
+      sentence
+    ]
+
   })
 );
 
@@ -945,6 +818,7 @@ let questions=[];
 let current=0;
 let score=0;
 let locked=false;
+let selectedAnswerIndex=0;
 
 const $=
   id=>document.getElementById(id);
@@ -958,15 +832,24 @@ function shuffle(array){
 
   const a=[...array];
 
-  for(let i=a.length-1;i>0;i--){
+  for(
+    let i=a.length-1;
+    i>0;
+    i--
+  ){
 
     const j=
       Math.floor(
         Math.random()*(i+1)
       );
 
-    [a[i],a[j]]=
-    [a[j],a[i]];
+    [
+      a[i],
+      a[j]
+    ]=[
+      a[j],
+      a[i]
+    ];
   }
 
   return a;
@@ -1031,7 +914,8 @@ function getMistakes(){
       ) || "{}"
     );
 
-  }catch(error){
+  }
+  catch(error){
 
     return {};
   }
@@ -1058,7 +942,9 @@ function updateMistakeCount(){
 
   $("mistakeCount")
   .textContent=
-    " ("+count+")";
+    count
+    ? " ("+count+")"
+    : "";
 }
 
 
@@ -1138,6 +1024,27 @@ $("nextButton")
 );
 
 
+/* VŠETKY CVIČENIA */
+
+$("allExercisesHomeBtn")
+.addEventListener(
+  "click",
+  goToAllExercises
+);
+
+$("allExercisesBtn")
+.addEventListener(
+  "click",
+  goToAllExercises
+);
+
+$("allExercisesFinishBtn")
+.addEventListener(
+  "click",
+  goToAllExercises
+);
+
+
 /* =====================================================
    ZAČAŤ TRÉNING
 ===================================================== */
@@ -1164,7 +1071,11 @@ function startTraining(){
       )
     )
 
-  ].slice(0,10);
+  ]
+  .slice(
+    0,
+    10
+  );
 
   current=0;
   score=0;
@@ -1190,7 +1101,8 @@ function startMistakeTraining(){
     ...level2,
     ...level3
 
-  ].filter(
+  ]
+  .filter(
     x=>mistakes[x.id]
   );
 
@@ -1205,7 +1117,10 @@ function startMistakeTraining(){
 
   questions=
     shuffle(all)
-    .slice(0,10);
+    .slice(
+      0,
+      10
+    );
 
   current=0;
   score=0;
@@ -1223,10 +1138,15 @@ function startMistakeTraining(){
 function render(){
 
   locked=false;
+  selectedAnswerIndex=0;
 
-  if(current>=questions.length){
+  if(
+    current>=
+    questions.length
+  ){
 
     finish();
+
     return;
   }
 
@@ -1235,8 +1155,8 @@ function render(){
 
   $("counter")
   .textContent=
-    (current+1)
-    +" / "+
+    (current+1)+
+    " / "+
     questions.length;
 
   $("points")
@@ -1246,20 +1166,19 @@ function render(){
   $("bar")
   .style.width=
     (
-      current /
-      questions.length *
+      current/
+      questions.length*
       100
-    )+"%";
+    )+
+    "%";
 
   $("levelBadge")
   .textContent=
 
     selectedLevel===1
-
     ? "⭐ Skúšam"
 
     : selectedLevel===2
-
     ? "⭐⭐ Už mi to ide"
 
     : "⭐⭐⭐ DámTo!";
@@ -1287,13 +1206,19 @@ function render(){
 
   box.innerHTML="";
 
-  shuffle(x.o)
-  .forEach(
-    option=>{
+  const mixed=
+    shuffle(
+      x.o
+    );
+
+  mixed.forEach(
+    (option,index)=>{
 
       const button=
         document
-        .createElement("button");
+        .createElement(
+          "button"
+        );
 
       button.className=
         "answer";
@@ -1303,13 +1228,54 @@ function render(){
 
       button.addEventListener(
         "click",
-        ()=>checkAnswer(
-          option===x.c
-        )
+        ()=>{
+
+          selectedAnswerIndex=
+            index;
+
+          updateKeyboardSelection();
+
+          checkAnswer(
+            option===x.c
+          );
+        }
       );
 
       box.appendChild(
         button
+      );
+    }
+  );
+
+  updateKeyboardSelection();
+}
+
+
+/* =====================================================
+   KLÁVESNICOVÝ VÝBER
+===================================================== */
+
+function updateKeyboardSelection(){
+
+  const buttons=[
+    ...document
+    .querySelectorAll(
+      ".answer"
+    )
+  ];
+
+  buttons.forEach(
+    (button,index)=>{
+
+      button
+      .classList
+      .toggle(
+
+        "keyboardSelected",
+
+        index===
+        selectedAnswerIndex &&
+        !button.disabled
       );
     }
   );
@@ -1349,7 +1315,8 @@ function checkAnswer(ok){
     feedback.innerHTML=
       "🎉 <b>Výborne!</b> Správna odpoveď.";
 
-  }else{
+  }
+  else{
 
     mistakes[x.id]=true;
 
@@ -1357,8 +1324,8 @@ function checkAnswer(ok){
       "feedback bad";
 
     feedback.innerHTML=
-      "❌ <b>Nesprávne.</b> Správna odpoveď je <b>"
-      +x.c+
+      "❌ <b>Nesprávne.</b> Správna odpoveď je <b>"+
+      x.c+
       "</b>.";
   }
 
@@ -1371,7 +1338,9 @@ function checkAnswer(ok){
     score;
 
   document
-  .querySelectorAll(".answer")
+  .querySelectorAll(
+    ".answer"
+  )
   .forEach(
     button=>
       button.disabled=true
@@ -1393,12 +1362,15 @@ function nextQuestion(){
 
   render();
 
-  window.scrollTo(0,0);
+  window.scrollTo(
+    0,
+    0
+  );
 }
 
 
 /* =====================================================
-   ENTER = ĎALEJ
+   ŠÍPKY + ENTER
 ===================================================== */
 
 document
@@ -1407,18 +1379,107 @@ document
   event=>{
 
     if(
-      event.key==="Enter" &&
-      !$("game")
-      .classList
-      .contains("hidden") &&
-      !$("nextButton")
+      $("game")
       .classList
       .contains("hidden")
+    ){
+      return;
+    }
+
+    const buttons=[
+      ...document
+      .querySelectorAll(
+        ".answer"
+      )
+    ];
+
+
+    /* po odpovedi ENTER = ďalšia otázka */
+
+    if(
+      locked &&
+      event.key==="Enter"
     ){
 
       event.preventDefault();
 
       nextQuestion();
+
+      return;
+    }
+
+
+    if(
+      locked ||
+      !buttons.length
+    ){
+      return;
+    }
+
+
+    /* doprava / dole */
+
+    if(
+      event.key==="ArrowRight" ||
+      event.key==="ArrowDown"
+    ){
+
+      event.preventDefault();
+
+      selectedAnswerIndex=
+        (
+          selectedAnswerIndex+1
+        ) %
+        buttons.length;
+
+      updateKeyboardSelection();
+
+      return;
+    }
+
+
+    /* doľava / hore */
+
+    if(
+      event.key==="ArrowLeft" ||
+      event.key==="ArrowUp"
+    ){
+
+      event.preventDefault();
+
+      selectedAnswerIndex=
+        (
+          selectedAnswerIndex-1+
+          buttons.length
+        ) %
+        buttons.length;
+
+      updateKeyboardSelection();
+
+      return;
+    }
+
+
+    /* ENTER = potvrdenie */
+
+    if(
+      event.key==="Enter"
+    ){
+
+      event.preventDefault();
+
+      const selected=
+        buttons[
+          selectedAnswerIndex
+        ];
+
+      if(
+        selected &&
+        !selected.disabled
+      ){
+
+        selected.click();
+      }
     }
   }
 );
@@ -1438,36 +1499,33 @@ function finish(){
 
   const percent=
     questions.length
-
     ? score/questions.length
-
     : 0;
 
   $("finalMessage")
   .textContent=
 
     percent===1
-
     ? "Perfektné! Bez chyby. 🌟"
 
     : percent>=0.8
-
     ? "Výborne! 🚀"
 
     : percent>=0.6
-
     ? "Pekná práca. 💪"
 
     : "Skús ešte jeden tréning. 🌱";
 
   updateMistakeCount();
 
-  show("finish");
+  show(
+    "finish"
+  );
 }
 
 
 /* =====================================================
-   ŠTART
+   SPUSTENIE
 ===================================================== */
 
 updateMistakeCount();
